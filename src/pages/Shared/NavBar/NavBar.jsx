@@ -1,6 +1,9 @@
+import { useContext } from "react";
 import { Link } from "react-router-dom";
-
+import { AuthContent } from "../../../system/AuthProvider/AuthProvider";
 const NavBar = () => {
+  const { user, userLogout } = useContext(AuthContent);
+
   return (
     <div className="navbar py-6 px-0">
       <div className="navbar-start">
@@ -29,14 +32,30 @@ const NavBar = () => {
               <Link to="/">Home</Link>
             </li>
             <li>
-              <Link to="/">All Toys</Link>
-            </li>
-            <li>
-              <Link to="/">Add Toy</Link>
-            </li>
-            <li>
               <Link to="/">Blog</Link>
             </li>
+            <li>
+              <Link to="/">All Toys</Link>
+            </li>
+            {user?.email ? (
+              <>
+                <li>
+                  <Link to="/">My Toys</Link>
+                </li>
+                <li>
+                  <Link to="/">Add Toy</Link>
+                </li>
+                <li>
+                  <p onClick={userLogout}>Logout</p>
+                </li>
+              </>
+            ) : (
+              <>
+                <li>
+                  <Link to="/login">Login</Link>
+                </li>
+              </>
+            )}
           </ul>
         </div>
         <Link to="/" className="text-3xl font-bold">
@@ -49,18 +68,42 @@ const NavBar = () => {
             <Link to="/">Home</Link>
           </li>
           <li>
-            <Link to="/">All Toys</Link>
-          </li>
-          <li>
-            <Link to="/">Add Toy</Link>
-          </li>
-          <li>
             <Link to="/">Blog</Link>
           </li>
+          <li>
+            <Link to="/">All Toys</Link>
+          </li>
+          {user?.email ? (
+            <>
+              <li>
+                <Link to="/">My Toys</Link>
+              </li>
+              <li>
+                <Link to="/">Add Toy</Link>
+              </li>
+              <li>
+                <p onClick={userLogout}>Logout</p>
+              </li>
+            </>
+          ) : (
+            <>
+              <li>
+                <Link to="/login">Login</Link>
+              </li>
+            </>
+          )}
         </ul>
       </div>
       <div className="navbar-end">
-        <a className="btn">Image</a>
+        {user?.email && (
+          <>
+            <div className="avatar">
+              <div className="w-12 rounded-full">
+                <img title={user?.displayName} src={user?.photoURL} />
+              </div>
+            </div>
+          </>
+        )}
       </div>
     </div>
   );

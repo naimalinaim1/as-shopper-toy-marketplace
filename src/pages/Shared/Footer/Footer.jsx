@@ -17,6 +17,8 @@ const Footer = () => {
           AS Shopper
           <br />
           &copy; all right reversed 2023
+          <br />
+          Address: Savar, Dhaka
         </p>
       </div>
       <div>
