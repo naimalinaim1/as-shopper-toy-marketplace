@@ -58,8 +58,9 @@ const NavBar = () => {
             )}
           </ul>
         </div>
-        <Link to="/" className="text-3xl font-bold">
-          AS Shopper
+        <Link to="/" className="text-3xl font-bold flex items-center gap-1">
+          <img src="/logo.jpg" className="w-10" alt="logo" />
+          <span className="mb-2">Shopper</span>
         </Link>
       </div>
       <div className="navbar-center hidden lg:flex">
