@@ -41,11 +41,29 @@ const MyToys = () => {
     });
   };
 
+  // handle sorting data
+  const handleSortingData = (e) => {
+    const sort = e.target.value;
+    fetch(`http://localhost:3000/sortByPrice?email=${user?.email}&sort=${sort}`)
+      .then((res) => res.json())
+      .then((data) => setToys(data));
+  };
   return (
     <>
       {/* toys list */}
       <div className="overflow-x-auto w-full mt-12 mb-20">
         <h2 className="text-4xl font-bold text-center mb-10">My Toys</h2>
+        <div className="text-right mb-6 mr-2">
+          <p className="font-bold mr-14 mb-2">Sort By Price</p>
+          <select
+            onChange={handleSortingData}
+            className="select select-primary w-full max-w-[150px]"
+          >
+            <option value={0}>Sort By</option>
+            <option value={1}>Ascending</option>
+            <option value={-1}>Descending</option>
+          </select>
+        </div>
         <table className="table w-full">
           {/* head */}
           <thead>
