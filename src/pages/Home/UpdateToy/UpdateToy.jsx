@@ -1,5 +1,6 @@
 import { useLoaderData } from "react-router-dom";
 import useTitle from "../../../hooks/useTitle";
+import Swal from "sweetalert2";
 
 const UpdateToy = () => {
   const [toy] = useLoaderData();
@@ -15,7 +16,7 @@ const UpdateToy = () => {
       .then((res) => res.json())
       .then((data) => {
         if (data?.modifiedCount > 0) {
-          alert("Update successfully");
+          Swal.fire("Success!", "Toy Update successfully", "success");
         }
       });
   };

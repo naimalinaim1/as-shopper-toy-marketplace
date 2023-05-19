@@ -15,8 +15,10 @@ const ShopByCategory = () => {
         nemo vero? Quas est animi qui similique, culpa.
       </p>
       <h2 className="text-xl font-bold my-6">Shop by Category</h2>
-      <div data-aos="zoom-in">
-        <CategoryTabs />
+      <div className="min-h-[900px]">
+        <div data-aos="zoom-in">
+          <CategoryTabs />
+        </div>
       </div>
     </div>
   );
