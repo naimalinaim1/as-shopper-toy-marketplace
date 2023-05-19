@@ -1,11 +1,13 @@
 import { useContext, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContent } from "../AuthProvider/AuthProvider";
 
 const Login = () => {
   const [error, setError] = useState("");
   const { userLogin, googleLogin } = useContext(AuthContent);
   const navigate = useNavigate();
+  const location = useLocation();
+  const from = location.state?.from || "/";
 
   const handleLogin = (e) => {
     e.preventDefault();
@@ -21,7 +23,7 @@ const Login = () => {
     userLogin(email, password)
       .then(() => {
         // redirect home page
-        navigate("/");
+        navigate(from);
       })
       .catch((err) => setError(err.message));
   };
@@ -30,7 +32,7 @@ const Login = () => {
   const handleGoogleLogin = () => {
     googleLogin()
       .then(() => {
-        navigate("/");
+        navigate(from);
       })
       .catch((err) => setError(err.message));
   };

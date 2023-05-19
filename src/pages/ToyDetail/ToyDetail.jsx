@@ -14,8 +14,8 @@ const ToyDetail = () => {
       </figure>
       <div className="card-body">
         <h2 className="card-title">{toyItem?.name}</h2>
-        <p>Seller Name: ${toyItem?.sellerName}</p>
-        <p>Seller Email: ${toyItem?.sellerEmail}</p>
+        <p>Seller Name: {toyItem?.sellerName}</p>
+        <p>Seller Email: {toyItem?.sellerEmail}</p>
         <p>Price: ${toyItem?.price}</p>
         <p>Ratting: {toyItem?.rating}</p>
         <p>Available Quantity: {toyItem?.quantity}</p>
