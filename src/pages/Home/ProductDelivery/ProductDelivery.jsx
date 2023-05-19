@@ -4,7 +4,7 @@ const ProductDelivery = () => {
   const handleAddressSend = (e) => e.preventDefault();
 
   return (
-    <div className="my-20 py-10 px-8 rounded">
+    <div className="my-20 py-10 px-2 sm:px-8 rounded">
       <h2 className="text-center text-4xl font-bold">
         How can I get the product?
       </h2>
@@ -19,7 +19,7 @@ const ProductDelivery = () => {
           alt=""
         />
       </LazyLoad>
-      <div className="grid grid-cols-2 gap-4">
+      <div className="grid md:grid-cols-2 gap-4 mt-10">
         <div>
           <h3 className="text-lg font-bold">Shipping</h3>
           <p>

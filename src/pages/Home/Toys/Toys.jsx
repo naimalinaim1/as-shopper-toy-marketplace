@@ -57,13 +57,13 @@ const Toys = ({ toy }) => {
 
   return (
     <>
-      <div className="grid grid-cols-4 gap-4 my-10">
+      <div className="space-y-5 sm:space-y-0  grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 my-10">
         {toys?.map((toyItem, idx) => (
           <div key={idx} className="card card-compact  bg-base-100 shadow-xl">
             <figure className="h-[230px]">
               <img
                 data-aos={aos[idx]}
-                className="w-[80%] mx-auto"
+                className="sm:w-[80%] mx-auto"
                 src={toyItem?.pictureUrl}
                 alt=""
               />

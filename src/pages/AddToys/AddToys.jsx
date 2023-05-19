@@ -64,7 +64,7 @@ const AddToys = () => {
   };
 
   return (
-    <div className="w-[70%] mt-10 mb-28 mx-auto shadow-xl p-4 rounded-xl">
+    <div className="md:w-[70%] mt-10 mb-28 mx-auto shadow-xl p-4 rounded-xl">
       <h1 className="text-2xl font-bold mb-4">Product Details</h1>
       <form onSubmit={handleSubmit} className="space-y-4">
         <div>

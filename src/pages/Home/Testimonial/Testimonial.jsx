@@ -12,7 +12,7 @@ const Testimonial = () => {
         the word mountains, far from the countries Vokalia and Consonantia,
         there live the blind texts
       </p>
-      <div className="grid grid-cols-3 gap-6 mt-10">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 mt-10">
         <UserTestimonial
           name="Larry Elison"
           image="https://i.ibb.co/s6Zx254/download.jpg"
