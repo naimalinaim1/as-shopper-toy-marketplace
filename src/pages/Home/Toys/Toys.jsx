@@ -2,9 +2,13 @@ import { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { AuthContent } from "../../../system/AuthProvider/AuthProvider";
 import Swal from "sweetalert2";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 // eslint-disable-next-line react/prop-types
 const Toys = ({ toy }) => {
+  AOS.init();
+
   const { user } = useContext(AuthContent);
   const [toys, setToys] = useState();
   const navigate = useNavigate();
@@ -36,6 +40,21 @@ const Toys = ({ toy }) => {
     }
   };
 
+  const aos = [
+    "flip-right",
+    "zoom-out",
+    "fade-up-left",
+    "zoom-out",
+    "zoom-out-down",
+    "flip-left",
+    "flip-left",
+    "fade-up-right",
+    "fade-left",
+    "zoom-in",
+    "zoom-in-down",
+    "fade-up-left",
+  ];
+
   return (
     <>
       <div className="grid grid-cols-4 gap-4 my-10">
@@ -43,6 +62,7 @@ const Toys = ({ toy }) => {
           <div key={idx} className="card card-compact  bg-base-100 shadow-xl">
             <figure className="h-[230px]">
               <img
+                data-aos={aos[idx]}
                 className="w-[80%] mx-auto"
                 src={toyItem?.pictureUrl}
                 alt=""

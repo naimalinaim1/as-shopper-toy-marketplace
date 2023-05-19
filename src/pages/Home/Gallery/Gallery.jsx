@@ -1,4 +1,7 @@
+import AOS from "aos";
+import "aos/dist/aos.css";
 const Gallery = () => {
+  AOS.init();
   const images = [
     "https://i.ibb.co/J2g1F71/8.jpg",
     "https://i.ibb.co/Zh41rMp/9.png",
@@ -13,6 +16,22 @@ const Gallery = () => {
     "https://i.ibb.co/Zh41rMp/9.png",
     "https://i.ibb.co/v16W9Dj/7.jpg",
   ];
+
+  const aos = [
+    "zoom-out",
+    "flip-left",
+    "fade-up-left",
+    "fade-left",
+    "fade-up-right",
+    "fade-up-left",
+    "flip-left",
+    "flip-right",
+    "zoom-in",
+    "zoom-out",
+    "zoom-in-down",
+    "zoom-out-down",
+  ];
+
   return (
     <div className="py-16">
       <h2 className="text-4xl text-center font-bold mb-6">Toy Cars Gallery</h2>
@@ -27,7 +46,7 @@ const Gallery = () => {
       </p>
       <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
         {images.map((img, idx) => (
-          <div key={idx} className="p-6 border rounded">
+          <div data-aos={aos[idx]} key={idx} className="p-6 border rounded">
             <img
               src={img}
               alt="Gallery Image"

@@ -1,6 +1,9 @@
 import CategoryTabs from "../CategoryTabs/CategoryTabs";
-
+import AOS from "aos";
+import "aos/dist/aos.css";
 const ShopByCategory = () => {
+  AOS.init();
+
   return (
     <div className="mt-20 py-16 px-4 rounded">
       <h2 className="text-4xl text-center font-bold mb-6">Shop You Product</h2>
@@ -12,7 +15,9 @@ const ShopByCategory = () => {
         nemo vero? Quas est animi qui similique, culpa.
       </p>
       <h2 className="text-xl font-bold my-6">Shop by Category</h2>
-      <CategoryTabs />
+      <div data-aos="zoom-in">
+        <CategoryTabs />
+      </div>
     </div>
   );
 };
