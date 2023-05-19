@@ -10,11 +10,11 @@ const Footer = () => {
         </p>
       </div>
       <div>
-        <span className="footer-title">Services</span>
-        <a className="link link-hover">Branding</a>
-        <a className="link link-hover">Design</a>
-        <a className="link link-hover">Marketing</a>
-        <a className="link link-hover">Advertisement</a>
+        <span className="footer-title">Contact</span>
+        <a className="link link-hover">Email: asshopper@gmail.com</a>
+        <a className="link link-hover">Info: info@asshopper.com</a>
+        <a className="link link-hover">Phone: +01715485457</a>
+        <a className="link link-hover">Address: Savar, Dhaka</a>
       </div>
       <div>
         <span className="footer-title">Company</span>
