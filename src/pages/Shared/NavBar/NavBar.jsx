@@ -40,10 +40,10 @@ const NavBar = () => {
             {user?.email ? (
               <>
                 <li>
-                  <Link to="/">My Toys</Link>
+                  <Link to="/myToys">My Toys</Link>
                 </li>
                 <li>
-                  <Link to="/">Add Toy</Link>
+                  <Link to="/AddToys">Add A Toy</Link>
                 </li>
                 <li>
                   <p onClick={userLogout}>Logout</p>
@@ -77,10 +77,10 @@ const NavBar = () => {
           {user?.email ? (
             <>
               <li>
-                <Link to="/">My Toys</Link>
+                <Link to="/myToys">My Toys</Link>
               </li>
               <li>
-                <Link to="/">Add Toy</Link>
+                <Link to="/AddToys">Add A Toy</Link>
               </li>
               <li>
                 <p onClick={userLogout}>Logout</p>

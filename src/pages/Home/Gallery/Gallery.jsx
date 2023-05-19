@@ -27,15 +27,13 @@ const Gallery = () => {
       </p>
       <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
         {images.map((img, idx) => (
-          <>
-            <div key={idx} className="p-6 border rounded">
-              <img
-                src={img}
-                alt="Gallery Image"
-                className="w-full h-full object-cover"
-              />
-            </div>
-          </>
+          <div key={idx} className="p-6 border rounded">
+            <img
+              src={img}
+              alt="Gallery Image"
+              className="w-full h-full object-cover"
+            />
+          </div>
         ))}
       </div>
     </div>
