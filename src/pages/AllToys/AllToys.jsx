@@ -17,6 +17,7 @@ const AllToys = () => {
     fetch(`http://localhost:3000/totalToys?searchToy=${searchToyName}`)
       .then((res) => res.json())
       .then((data) => setTotalToy(data?.totalToy));
+    console.log(searchToyName);
   }, [searchToyName]);
 
   //   load search toy
@@ -37,12 +38,16 @@ const AllToys = () => {
   }, [currentPage, searchToyName]);
 
   const handleChangeToyName = (e) => {
-    setSearchToyName(e.target.value);
+    if (e.target.value != " ") {
+      setSearchToyName(e.target.value);
+      setCurrentPage(0);
+    }
   };
 
   //search toy
   const handleSearchToy = () => {
     loadToy();
+    setCurrentPage(0);
   };
 
   return (
