@@ -20,7 +20,7 @@ const ProductDelivery = () => {
         />
       </LazyLoad>
       <div className="grid grid-cols-2 gap-4">
-        <div className="px-4 py-8">
+        <div>
           <h3 className="text-lg font-bold">Shipping</h3>
           <p>
             We provide reliable shipping services to deliver your product to
@@ -50,6 +50,9 @@ const ProductDelivery = () => {
           </ul>
         </div>
         <form onSubmit={handleAddressSend}>
+          <p className="text-xl text-center font-bold">
+            Please Provide your information
+          </p>
           <div className="mt-4">
             <label htmlFor="name" className="block">
               Name:

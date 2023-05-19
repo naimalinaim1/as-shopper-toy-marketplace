@@ -3,6 +3,7 @@ import Banner from "../Banner/Banner";
 import Gallery from "../Gallery/Gallery";
 import ProductDelivery from "../ProductDelivery/ProductDelivery";
 import ShopByCategory from "../ShopByCategory/ShopByCategory";
+import Testimonial from "../Testimonial/Testimonial";
 
 const Home = () => {
   useTitle("Home");
@@ -13,6 +14,7 @@ const Home = () => {
       <Gallery />
       <ShopByCategory />
       <ProductDelivery />
+      <Testimonial />
     </div>
   );
 };
