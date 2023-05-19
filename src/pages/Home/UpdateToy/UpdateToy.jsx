@@ -7,7 +7,7 @@ const UpdateToy = () => {
   useTitle(`Update Toy ${toy?.name}`);
 
   const handleUpdateToy = (updateToy) => {
-    fetch("http://localhost:3000/toys", {
+    fetch("https://toy-car-sport-server.vercel.app/toys", {
       method: "PATCH",
       headers: { "content-type": "application/json" },
       body: JSON.stringify(updateToy),

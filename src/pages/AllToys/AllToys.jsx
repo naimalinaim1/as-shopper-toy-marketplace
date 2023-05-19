@@ -18,7 +18,9 @@ const AllToys = () => {
 
   // get total toy length
   useEffect(() => {
-    fetch(`http://localhost:3000/totalToys?searchToy=${searchToyName}`)
+    fetch(
+      `https://toy-car-sport-server.vercel.app/totalToys?searchToy=${searchToyName}`
+    )
       .then((res) => res.json())
       .then((data) => setTotalToy(data?.totalToy));
     console.log(searchToyName);
@@ -27,7 +29,7 @@ const AllToys = () => {
   //   load search toy
   const loadToy = () => {
     fetch(
-      `http://localhost:3000/searchToy?searchToy=${searchToyName}&page=${currentPage}&size=${perPageItem}`
+      `https://toy-car-sport-server.vercel.app/searchToy?searchToy=${searchToyName}&page=${currentPage}&size=${perPageItem}`
     )
       .then((res) => res.json())
       .then((data) => setToys(data));
@@ -35,7 +37,7 @@ const AllToys = () => {
 
   useEffect(() => {
     fetch(
-      `http://localhost:3000/searchToy?searchToy=${searchToyName}&page=${currentPage}&size=${perPageItem}`
+      `https://toy-car-sport-server.vercel.app/searchToy?searchToy=${searchToyName}&page=${currentPage}&size=${perPageItem}`
     )
       .then((res) => res.json())
       .then((data) => setToys(data));

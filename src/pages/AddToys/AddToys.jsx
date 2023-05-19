@@ -36,7 +36,7 @@ const AddToys = () => {
     e.preventDefault();
 
     // toy data send server
-    fetch("http://localhost:3000/toys", {
+    fetch("https://toy-car-sport-server.vercel.app/toys", {
       method: "POST",
       headers: { "content-type": "application/json" },
       body: JSON.stringify(formData),

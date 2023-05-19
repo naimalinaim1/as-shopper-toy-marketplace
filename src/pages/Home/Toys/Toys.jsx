@@ -14,7 +14,7 @@ const Toys = ({ toy }) => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    fetch(`http://localhost:3000/toys?subCategory=${toy}`)
+    fetch(`https://toy-car-sport-server.vercel.app/toys?subCategory=${toy}`)
       .then((res) => res.json())
       .then((data) => setToys(data));
   }, [toy]);

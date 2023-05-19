@@ -5,7 +5,7 @@ const ShopByCategory = () => {
   AOS.init();
 
   return (
-    <div className="mt-20 py-16 px-4 rounded">
+    <div className="mt-20 py-16 px-4 rounded border-b">
       <h2 className="text-4xl text-center font-bold mb-6">Shop You Product</h2>
       <p className="text-center text-lg hidden md:block md:px-20 mb-10">
         Find a wide range of toys for all ages lorem ipsum dolor sit amet
