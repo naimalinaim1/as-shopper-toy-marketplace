@@ -1,11 +1,15 @@
 import { useEffect, useState } from "react";
 import SingleToy from "./SingleToy";
+import useTitle from "../../hooks/useTitle";
 
 const AllToys = () => {
   const [searchToyName, setSearchToyName] = useState("");
   const [toys, setToys] = useState([]);
   const [currentPage, setCurrentPage] = useState(0);
   const [totalToy, setTotalToy] = useState(0);
+
+  // change title
+  useTitle("All Toys");
 
   // pagination
   const perPageItem = 20;

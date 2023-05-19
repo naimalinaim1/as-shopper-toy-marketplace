@@ -1,7 +1,10 @@
 import { useLoaderData } from "react-router-dom";
+import useTitle from "../../../hooks/useTitle";
 
 const UpdateToy = () => {
   const [toy] = useLoaderData();
+  // change title
+  useTitle(`Update Toy ${toy?.name}`);
 
   const handleUpdateToy = (updateToy) => {
     fetch("http://localhost:3000/toys", {

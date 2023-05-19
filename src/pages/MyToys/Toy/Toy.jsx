@@ -1,3 +1,4 @@
+import LazyLoad from "react-lazyload";
 import { Link } from "react-router-dom";
 
 const Toy = ({ handleUpdateToy, handleDeleteToy, index, toy }) => {
@@ -8,7 +9,9 @@ const Toy = ({ handleUpdateToy, handleDeleteToy, index, toy }) => {
       <tr>
         <th>{++index}</th>
         <td>
-          <img className="w-24" src={pictureUrl} alt="" />
+          <LazyLoad>
+            <img className="w-24" src={pictureUrl} alt="" />
+          </LazyLoad>
         </td>
         <td>{name}</td>
         <td>{subCategory}</td>

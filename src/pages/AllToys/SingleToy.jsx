@@ -3,6 +3,7 @@ import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import { AuthContent } from "../../system/AuthProvider/AuthProvider";
+import LazyLoad from "react-lazyload";
 
 const SingleToy = ({ toy, index }) => {
   const { _id, pictureUrl, name, sellerName, subCategory, price, quantity } =
@@ -33,7 +34,9 @@ const SingleToy = ({ toy, index }) => {
     <tr>
       <td>{++index}</td>
       <td>
-        <img className="w-24" src={pictureUrl} alt="" />
+        <LazyLoad height={150}>
+          <img className="w-24" src={pictureUrl} alt="" />
+        </LazyLoad>
       </td>
       <td>{name}</td>
       <td>{sellerName}</td>

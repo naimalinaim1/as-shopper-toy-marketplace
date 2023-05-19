@@ -1,9 +1,12 @@
 import { useContext, useState } from "react";
 import { AuthContent } from "../../system/AuthProvider/AuthProvider";
 import Swal from "sweetalert2";
+import useTitle from "../../hooks/useTitle";
 
 const AddToys = () => {
   const { user } = useContext(AuthContent);
+  // change title
+  useTitle("Add a new toys");
 
   const sellerName = user?.displayName || "";
   const sellerEmail = user?.email || "";
