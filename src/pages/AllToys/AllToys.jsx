@@ -4,25 +4,37 @@ import SingleToy from "./SingleToy";
 const AllToys = () => {
   const [searchToyName, setSearchToyName] = useState("");
   const [toys, setToys] = useState([]);
+  const [currentPage, setCurrentPage] = useState(0);
+  const [totalToy, setTotalToy] = useState(0);
 
+  // pagination
+  const perPageItem = 20;
+  const totalPage = Math.ceil(totalToy / perPageItem);
+  const totalButton = [...Array(totalPage).keys()];
+
+  // get total toy length
   useEffect(() => {
-    fetch("http://localhost:3000/toys")
+    fetch(`http://localhost:3000/totalToys?searchToy=${searchToyName}`)
       .then((res) => res.json())
-      .then((data) => setToys(data));
-  }, []);
+      .then((data) => setTotalToy(data?.totalToy));
+  }, [searchToyName]);
 
   //   load search toy
   const loadToy = () => {
-    fetch(`http://localhost:3000/searchToy?searchToy=${searchToyName}`)
+    fetch(
+      `http://localhost:3000/searchToy?searchToy=${searchToyName}&page=${currentPage}&size=${perPageItem}`
+    )
       .then((res) => res.json())
       .then((data) => setToys(data));
   };
 
   useEffect(() => {
-    fetch(`http://localhost:3000/searchToy?searchToy=${searchToyName}`)
+    fetch(
+      `http://localhost:3000/searchToy?searchToy=${searchToyName}&page=${currentPage}&size=${perPageItem}`
+    )
       .then((res) => res.json())
       .then((data) => setToys(data));
-  }, [searchToyName]);
+  }, [currentPage, searchToyName]);
 
   const handleChangeToyName = (e) => {
     setSearchToyName(e.target.value);
@@ -53,6 +65,7 @@ const AllToys = () => {
           {/* head */}
           <thead>
             <tr>
+              <th>No</th>
               <th>Image</th>
               <th>Toy Name</th>
               <th>Seller</th>
@@ -63,11 +76,43 @@ const AllToys = () => {
             </tr>
           </thead>
           <tbody>
-            {toys.map((toy) => (
-              <SingleToy key={toy._id} toy={toy} />
-            ))}
+            {toys.length > 0 ? (
+              <>
+                {toys.map((toy, idx) => (
+                  <SingleToy
+                    index={idx + currentPage * perPageItem}
+                    key={toy._id}
+                    toy={toy}
+                  />
+                ))}
+              </>
+            ) : totalToy === 0 ? (
+              <tr>
+                <td className="text-red-500">No found</td>
+              </tr>
+            ) : (
+              <tr>
+                <td className="text-blue-500">Loading</td>
+              </tr>
+            )}
           </tbody>
         </table>
+        <div className="w-full my-6 text-center">
+          <div className="btn-group">
+            {totalToy > perPageItem &&
+              totalButton.map((button) => (
+                <button
+                  onClick={() => setCurrentPage(button)}
+                  key={button}
+                  className={`btn ${
+                    currentPage === button ? "btn-active" : ""
+                  }`}
+                >
+                  {button}
+                </button>
+              ))}
+          </div>
+        </div>
       </div>
     </div>
   );

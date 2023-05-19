@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import { AuthContent } from "../../system/AuthProvider/AuthProvider";
 
-const SingleToy = ({ toy }) => {
+const SingleToy = ({ toy, index }) => {
   const { _id, pictureUrl, name, sellerName, subCategory, price, quantity } =
     toy;
   const { user } = useContext(AuthContent);
@@ -31,6 +31,7 @@ const SingleToy = ({ toy }) => {
   };
   return (
     <tr>
+      <td>{++index}</td>
       <td>
         <img className="w-24" src={pictureUrl} alt="" />
       </td>
