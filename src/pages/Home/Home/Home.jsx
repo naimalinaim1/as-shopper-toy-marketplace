@@ -3,6 +3,7 @@ import Banner from "../Banner/Banner";
 import Gallery from "../Gallery/Gallery";
 import ProductDelivery from "../ProductDelivery/ProductDelivery";
 import ShopByCategory from "../ShopByCategory/ShopByCategory";
+import Subscribe from "../Subscribe/Subscribe";
 import Testimonial from "../Testimonial/Testimonial";
 
 const Home = () => {
@@ -15,6 +16,7 @@ const Home = () => {
       <ShopByCategory />
       <ProductDelivery />
       <Testimonial />
+      <Subscribe />
     </div>
   );
 };
