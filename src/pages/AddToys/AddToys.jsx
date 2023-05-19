@@ -1,5 +1,6 @@
 import { useContext, useState } from "react";
 import { AuthContent } from "../../system/AuthProvider/AuthProvider";
+import Swal from "sweetalert2";
 
 const AddToys = () => {
   const { user } = useContext(AuthContent);
@@ -52,7 +53,9 @@ const AddToys = () => {
             quantity: "",
             description: "",
           });
-          alert("toy added successfully");
+          Swal.fire("Success!", "Toy added successfully", "success");
+        } else {
+          Swal.fire("Error!", "Toy added Filed", "error");
         }
       });
   };
